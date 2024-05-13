@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('company_name',500);
             $table->string('address',1000);
             $table->string('phone',1000);
-            $table->boolean('active');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
