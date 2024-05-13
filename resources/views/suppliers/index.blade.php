@@ -62,15 +62,8 @@
                                 <td> {{$item->address}}</td>
                                 <td> {{$item->phone}}</td>
                                 <td>
-                                    <a href="{{ route('suppliers.edit', $item->id) }}" class="btn btn-info">Update</a>
-                                    <form action="{{ route('suppliers.destroy', $item->id) }}" method="post">
-                                        @csrf
-                                        @method('delete')
-
-                                        <input type="submit" value="Eliminar" class="btn btn-danger" onclick="return confirm('¿Estás seguro que quieres eliminarlo?')">
-                                    </form>
+                                    <a href="{{ route('suppliers.show', $item->id) }}" class="btn btn-secondary">Show</a>
                                 </td>
-                            </tr>
 
                             @endforeach
 

@@ -62,8 +62,7 @@
                                 <td> {{$item->available_quantity}}</td>
                                 <td> {{$item->company_name}}</td>
                                 <td>
-                                    <button type="submit" class="btn btn-primary">Update</button>
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-primary">Edit product</button>
                                 </td>
                             </tr>
 
