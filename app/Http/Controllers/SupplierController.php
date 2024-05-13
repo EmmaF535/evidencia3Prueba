@@ -20,7 +20,7 @@ class SupplierController extends Controller
 
     public function create()
     {
-        return view('suppliers.create');    
+        return view('suppliers.create');
     }
 
     public function store(Request $request)
@@ -43,7 +43,8 @@ class SupplierController extends Controller
      */
     public function show($id)
     {
-        
+        return view('suppliers.show')
+            ->with('suppliers', Supplier::supplier_por_id($id));
     }
 
     /**
@@ -67,6 +68,8 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request);
+
         $suppliers = Supplier::supplier_por_id($id);
 
         $suppliers->update([

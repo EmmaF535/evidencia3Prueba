@@ -22,23 +22,17 @@
         <div class="row justify-content-center">
             <div class="col-12 col-md-9 col-lg-6">
                 <table class="table mb-4">
-                    <tbody>
-                        <tr>
-                            <td><b>Created at:</b> {{ $supplier->created_at->diffForHumans() }}</td>
-                            <td><b>Updated at:</b> {{ $supplier->updated_at->diffForHumans()}}</td>
-                        </tr>
-                    </tbody>
                 </table>
 
                 <div class="mb-3">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" name="title" class="form-control" value="{{ $suppliers->address }}">
-                    </div>
+                        <p style="white-space: pre-wrap;">{{ $suppliers->address }}</p>
+                </div>
                     
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Phone</label>
-                        <input type="text" name="title" class="form-control" value="{{ $suppliers->phone }}">
-                    </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Phone</label>
+                    <p style="white-space: pre-wrap;">{{ $suppliers->address }}</p>
+                </div>
 
                 <div class="text-end">
                     <a href="{{ route('suppliers.edit', $suppliers->id) }}" class="btn btn-warning">Edit supplier</a>

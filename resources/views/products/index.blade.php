@@ -35,7 +35,9 @@
                 <h1 class="bg-primary text-white text-center py-4">Products</h1>
             </div>
             <div class="col-4 text-end"> <!-- Utilizamos una columna de 6 para alinear el botón a la derecha -->
-                <button type="button" class="btn btn-success mt-4 me-3">Add product</button>
+                <div class="col text-end">
+                    <a href="{{ route('products.create') }}" class="btn btn-success">New product +</a>
+                </div>
                 <button type="button" class="btn btn-primary mt-4 me-3">Buy product</button>
             </div>
         </div>
@@ -62,7 +64,7 @@
                                 <td> {{$item->available_quantity}}</td>
                                 <td> {{$item->company_name}}</td>
                                 <td>
-                                    <button type="submit" class="btn btn-primary">Edit product</button>
+                                    <a href="{{ route('products.show', $item->id) }}" class="btn btn-secondary">Show product</a>
                                 </td>
                             </tr>
 
