@@ -62,9 +62,9 @@
                                 <td> {{$item->address}}</td>
                                 <td> {{$item->phone}}</td>
                                 <td>
-                                    <a href="{{ route('suppliers.show', $item->id) }}" class="btn btn-secondary">Show</a>
+                                    <a href="{{ route('suppliers.show', $item->id) }}" class="btn btn-info">Show</a>
                                 </td>
-
+                            </tr>
                             @endforeach
 
                         </tbody>

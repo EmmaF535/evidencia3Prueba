@@ -61,8 +61,7 @@
                                 <td> {{$item->username}}</td>
                                 <td> {{$item->role}}</td>
                                 <td>
-                                    <button type="submit" class="btn btn-primary">Update</button>
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <a href="{{ route('workers.show', $item->id) }}" class="btn btn-secondary">Show</a>
                                 </td>
                             </tr>
 

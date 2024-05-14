@@ -43,10 +43,6 @@
                     </form>
                 </div>
                 
-                
-                
-
-
                 <div class="text-end">
                     <a href="{{ route('products.edit', $products->id) }}" class="btn btn-warning">Edit product</a>
 

@@ -9,6 +9,9 @@ class Customer extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+    protected $fillable = ['name', 'username', 'password', 'rfc'];
+
     static function todos_los_clientes(){
         return Customer::select('customers.id','name','username','rfc')
         ->where('customers.active',true)

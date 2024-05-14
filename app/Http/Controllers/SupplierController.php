@@ -91,7 +91,9 @@ class SupplierController extends Controller
     {
         $suppliers = Supplier::supplier_por_id($id);
 
-        $suppliers->delete();
+        $suppliers->update([
+            'active'     =>  false,
+        ]);
         
 
         return redirect()->route('suppliers.index');

@@ -82,7 +82,9 @@ class ProductController extends Controller
     {
         $products = Product::producto_por_id($id);
 
-        $products->delete();
+        $products->update([
+            'active'     =>  false,
+        ]);
         
 
         return redirect()->route('products.index');

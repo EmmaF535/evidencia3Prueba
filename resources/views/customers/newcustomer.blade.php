@@ -26,20 +26,28 @@
                 <div class="card-header">
                     <h2 class="card-title">Add customer</h2>
                 </div>
+                <form action="{{ route('customers.store') }}" method="post">
+                    @csrf
+
                 <div class="card-body">
                     <form action="#" method="post">
                         <div class="form-group">
-                            <label for="name">Name: </label>
+                            <label for="name">Customer name:</label>
                             <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="username">Username:</label>
+                            <label for="username">Customer Username:</label>
                             <input type="text" id="username" name="username" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="role">RFC:</label>
-                            <input type="text" id="role" name="role" class="form-control" required>
+                            <label for="password">Pasword:</label>
+                            <input type="text" id="password" name="password" class="form-control" required>
                         </div>
+                        <div class="form-group">
+                            <label for="rfc">RFC: </label>
+                            <input type="text" id="rfc" name="rfc" class="form-control" required>
+                        </div>
+                     
                         <button type="submit" class="btn btn-primary btn-block">Add customer</button>
                     </form>
                 </div>

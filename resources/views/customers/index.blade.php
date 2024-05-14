@@ -35,7 +35,7 @@
                 <h1 class="bg-primary text-white text-center py-4">Customers</h1>
             </div>
             <div class="col-4 text-end"> <!-- Utilizamos una columna de 6 para alinear el botón a la derecha -->
-                <button type="button" class="btn btn-success mt-4 me-3">Add customer</button>
+                <a href="{{ route('customers.create') }}" class="btn btn-success">Add customer + </a>
             </div>
         </div>
         <div class="row">
@@ -61,8 +61,7 @@
                                 <td> {{$item->username}}</td>
                                 <td> {{$item->rfc}}</td>
                                 <td>
-                                    <button type="submit" class="btn btn-primary">Update</button>
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                <a href="{{ route('customers.show', $item->id) }}" class="btn btn-info">Show</a>
                                 </td>
                             </tr>
 
