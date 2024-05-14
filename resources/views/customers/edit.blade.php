@@ -26,27 +26,27 @@
                     @csrf
                     @method('put')
 
-                    <div class="mb-3">
+                    <div class="form-group">
                         <label for="name" class="form-label">Customer Name</label>
                         <input type="text" name="name" class="form-control" value="{{ $customers->name }}">
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="form-group">
                         <label for="username" class="form-label">Username</label>
                         <input type="text" name="username" class="form-control" value="{{ $customers->username }}">
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="form-group">
                         <label for="password" class="form-label">Password</label>
                         <input type="text" name="password" class="form-control" value="{{ $customers->password }}">
                     </div>
 
-                    <div class="mb-3">
+                    <div class="form-group">
                         <label for="rfc" class="form-label">RFC</label>
                         <input type="text" name="rfc" class="form-control" value="{{ $customers->rfc }}">
                     </div>
 
-                    <div class="text-end">
+                    <div class="form-group">
                         <input type="submit" value="Update Supplier" class="btn btn-warning">
                     </div>
 
