@@ -9,7 +9,7 @@ class SupplierController extends Controller
 {
     public function index()
     {
-        //$suppliers = Supplier::todos_los_suppliers();
+      //  $suppliers = Supplier::todos_los_suppliers();
         $suppliers = Supplier::select('id','company_name','address','phone')
             ->orderby('id','asc')
             ->get();
@@ -91,7 +91,7 @@ class SupplierController extends Controller
     {
         $suppliers = Supplier::supplier_por_id($id);
 
-        $note->delete();
+        $suppliers->delete();
         
 
         return redirect()->route('suppliers.index');

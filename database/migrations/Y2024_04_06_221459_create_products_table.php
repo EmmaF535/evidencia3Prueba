@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('supplier_id')->references('id')->on('suppliers');
             $table->string('product_name',500);
             $table->integer('available_quantity');
-            $table->boolean('active');
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }

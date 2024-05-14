@@ -9,6 +9,8 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     static function todos_los_productos(){
         return Product::join('suppliers','suppliers.id', '=','products.supplier_id')
         ->select('products.supplier_id','products.id','product_name','available_quantity','suppliers.company_name')

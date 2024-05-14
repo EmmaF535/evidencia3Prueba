@@ -18,7 +18,8 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create');    
+        return view('products.create')
+            ->with('products', Product::todos_los_productos());    
     }
 
     public function store(Request $request)
@@ -29,13 +30,61 @@ class ProductController extends Controller
             'available_quantity'=>$request->available_quantity
         ]);
 
-        return redirect()->route('suppliers.index')
-            ->with('success', 'Supplier creado exitosamente');
+        return redirect()->route('products.index')
+            ->with('success', 'Product successfully created');
     }
 
     public function show($id)
     {
         return view('products.show')
             ->with('products', Product::producto_por_id($id));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        return view('products.edit')
+            ->with('products', Product::producto_por_id($id));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $products = Product::supplier_por_id($id);
+
+        $products->update([
+            'supplier_id' =>  $request->supplier_id,
+            'available_quantity'   => $request->available_quantity,
+            'product_name'   =>  $request->product_name
+        ]);
+
+        return redirect()->route('suppliers.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $products = Product::producto_por_id($id);
+
+        $products->delete();
+        
+
+        return redirect()->route('products.index');
     }
 }
