@@ -20,7 +20,7 @@ class ProductFactory extends Factory
             'supplier_id'  => $this->faker->numberBetween(1, 10),
             'product_name'          => $this->faker->word(),
             'available_quantity'         => $this->faker->numberBetween(1, 100),
-            'active' => $this->faker->boolean()
+            'active' => True
         ];
     }
 }

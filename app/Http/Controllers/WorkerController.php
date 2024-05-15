@@ -10,7 +10,6 @@ class WorkerController extends Controller
 {
     public function index()
     {
-    
         $workers = Worker::todos_los_empleados();
     
         return view('workers.index',compact('workers'));
@@ -19,19 +18,21 @@ class WorkerController extends Controller
 
     public function create()
     {
-        return view('workers.create');
+        return view('workers.create')
+            ->with('roles', Role::todos_los_roles());
     }
     
     public function store(Request $request)
     {
         Worker::create([
-            'company_name'=>$request->company_name,
-            'address'=>$request->address,
-            'phone'=>$request->phone
+            'name'=>$request->name,
+            'username'=>$request->username,
+            'password'=>$request->password,
+            'role_id'=>$request->role_id
         ]);
 
-        return redirect()->route('suppliers.index')
-            ->with('success', 'Supplier creado exitosamente');
+        return redirect()->route('employees.index')
+            ->with('success', 'Empleado creado exitosamente');
     }
         /**
      * Display the specified resource.
@@ -41,8 +42,8 @@ class WorkerController extends Controller
      */
     public function show($id)
     {
-        return view('suppliers.show')
-            ->with('suppliers', Supplier::supplier_por_id($id));
+        return view('workers.show')
+            ->with('workers', Worker::employee_por_id($id));
     }
 
     /**
@@ -53,8 +54,9 @@ class WorkerController extends Controller
      */
     public function edit($id)
     {
-        return view('suppliers.edit')
-            ->with('suppliers', Supplier::supplier_por_id($id));
+        return view('workers.edit')
+            ->with('workers', Worker::employee_por_id($id))
+            ->with('roles', Role::todos_los_roles());
     }
 
     /**
@@ -66,17 +68,17 @@ class WorkerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
 
-        $suppliers = Supplier::supplier_por_id($id);
+        $workers = Worker::employee_por_id($id);
 
-        $suppliers->update([
-            'company_name' =>  $request->company_name,
-            'address'   => $request->address,
-            'phone'   =>  $request->phone
+        $workers->update([
+            'role_id' =>  $request->role_id,
+            'name'   => $request->name,
+            'username'   =>  $request->username,
+            'password'=>$request->password
         ]);
 
-        return redirect()->route('suppliers.index');
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -87,13 +89,13 @@ class WorkerController extends Controller
      */
     public function destroy($id)
     {
-        $suppliers = Supplier::supplier_por_id($id);
+        $workers = Worker::employee_por_id($id);
 
-        $suppliers->update([
+        $workers->update([
             'active'     =>  false,
         ]);
         
 
-        return redirect()->route('suppliers.index');
+        return redirect()->route('employees.index');
     }
 }

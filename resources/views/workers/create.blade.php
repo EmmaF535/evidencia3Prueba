@@ -26,33 +26,39 @@
                 <div class="card-header">
                     <h2 class="card-title">Add employee</h2>
                 </div>
-                <div class="card-body">
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <label for="name">Name: </label>
-                            <input type="text" id="name" name="name" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                                <label >Role ID:</label>
+                <form action="{{ route('employees.store') }}" method="post">
+                        @csrf
+
+                    <div class="card-body">
+                        <form action="#" method="post">
+                        
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <input type="text" id="username" name="username" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="text" id="password" name="password" class="form-control" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label >Role:</label>
                                 <select name="role_id" class="form-select form-control" aria-label="Default select example">
-                                    @forelse($workers as $employee)
-                                    <option value="{{$employee->supplier_id}}">{{$employee->supplier_id}}</option>
+                                    @forelse($roles as $rol)
+                                    <option value="{{$rol->id}}">{{$rol->role}}</option>
                                     @empty
-                                    <option value="1">There are no suppliers</option>
+                                    <option value="1">There are no roles</option>
                                     @endforelse
                                 </select>
-                            </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="text" id="password" name="password" class="form-control" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Add employee</button>
+                            </div>
+                        |
+                            <button type="submit" class="btn btn-primary btn-block">Add employee</button>
+                        </form>
                     </form>
-                </div>
             </div>
         </div>
     </div>

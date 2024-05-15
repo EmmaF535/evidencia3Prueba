@@ -13,7 +13,7 @@ class Worker extends Model
 
     static function todos_los_empleados(){
         return Worker::join('roles','roles.id', '=','workers.role_id')
-            ->select('workers.id','name','username','roles.role')
+            ->select('workers.role_id','workers.id','name','username','roles.role')
             ->where('workers.active', true)
             ->orderby('workers.id','asc')
             ->get();

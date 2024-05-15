@@ -35,7 +35,7 @@
                 <h1 class="bg-primary text-white text-center py-4">Workers</h1>
             </div>
         <div class="col-4 text-end"> <!-- Utilizamos una columna de 6 para alinear el botón a la derecha -->
-                <a href="{{ route('employees.create') }}" class="btn btn-success">Add supplier + </a>
+                <a href="{{ route('employees.create') }}" class="btn btn-success">Add worker + </a>
             </div>
         </div>
         <div class="row">
@@ -61,7 +61,7 @@
                                 <td> {{$item->username}}</td>
                                 <td> {{$item->role}}</td>
                                 <td>
-                                    <a href="{{ route('employees.show'), $item->id}}" class="btn btn-info">Show </a>
+                                    <a href="{{ route('employees.show', $item->id) }}" class="btn btn-info">Show </a>
                                 </td>
                             </tr>
 

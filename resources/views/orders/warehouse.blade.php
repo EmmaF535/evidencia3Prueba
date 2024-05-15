@@ -126,7 +126,7 @@
                                     @endif
                                        
                                 @else
-                                    <button type="submit" class="btn btn-success">Buy materials</button>
+                                <a href="{{ route('products.edit', $item->product_id) }}" type="submit" class="btn btn-success">Buy materials</a>
                                 @endif
                                     
                                 </td>
