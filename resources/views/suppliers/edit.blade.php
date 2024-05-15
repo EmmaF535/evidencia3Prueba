@@ -26,19 +26,19 @@
                     @csrf
                     @method('put')
 
-                    <div class="mb-3">
+                    <div class="form-group">
                         <label for="company_name" class="form-label">Company Name</label>
-                        <input type="text" name="title" class="form-control" value="{{ $suppliers->company_name }}">
+                        <input type="text" name="company_name" class="form-control" value="{{ $suppliers->company_name }}">
                     </div>
                     
-                    <div class="mb-3">
+                    <div class="form-group">
                         <label for="address" class="form-label">Address</label>
-                        <input type="text" name="title" class="form-control" value="{{ $suppliers->address }}">
+                        <input type="text" name="address" class="form-control" value="{{ $suppliers->address }}">
                     </div>
                     
-                    <div class="mb-3">
-                        <label for="address" class="form-label">Phone</label>
-                        <input type="text" name="title" class="form-control" value="{{ $suppliers->phone }}">
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" name="phone" class="form-control" value="{{ $suppliers->phone }}">
                     </div>
 
                     <div class="text-end">

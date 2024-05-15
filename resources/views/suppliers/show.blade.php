@@ -31,10 +31,10 @@
                     
                 <div class="mb-3">
                     <label for="address" class="form-label">Phone</label>
-                    <p style="white-space: pre-wrap;">{{ $suppliers->address }}</p>
+                    <p style="white-space: pre-wrap;">{{ $suppliers->phone }}</p>
                 </div>
 
-                <div class="text-end">
+                <div class="mb-3">
                     <a href="{{ route('suppliers.edit', $suppliers->id) }}" class="btn btn-warning">Edit supplier</a>
 
                     <form action="{{ route('suppliers.destroy', $suppliers->id) }}" method="post">

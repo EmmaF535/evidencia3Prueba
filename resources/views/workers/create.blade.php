@@ -37,9 +37,15 @@
                             <input type="text" id="username" name="username" class="form-control" required>
                         </div>
                         <div class="form-group">
-                            <label for="role">Role:</label>
-                            <input type="text" id="role" name="role" class="form-control" required>
-                        </div>
+                                <label >Role ID:</label>
+                                <select name="role_id" class="form-select form-control" aria-label="Default select example">
+                                    @forelse($workers as $employee)
+                                    <option value="{{$employee->supplier_id}}">{{$employee->supplier_id}}</option>
+                                    @empty
+                                    <option value="1">There are no suppliers</option>
+                                    @endforelse
+                                </select>
+                            </div>
                         <div class="form-group">
                             <label for="password">Password:</label>
                             <input type="text" id="password" name="password" class="form-control" required>

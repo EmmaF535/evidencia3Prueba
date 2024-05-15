@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Supplier;
 
 class ProductController extends Controller
 {
@@ -49,9 +50,10 @@ class ProductController extends Controller
     public function edit($id)
     {
         return view('products.edit')
-            ->with('products', Product::producto_por_id($id));
+            ->with('products', Product::producto_por_id($id))
+            ->with('suppliers', Supplier::todos_los_suppliers());
     }
-
+ 
     /**
      * Update the specified resource in storage.
      *
@@ -61,7 +63,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $products = Product::supplier_por_id($id);
+        $products = Product::producto_por_id($id);
 
         $products->update([
             'supplier_id' =>  $request->supplier_id,
@@ -69,7 +71,7 @@ class ProductController extends Controller
             'product_name'   =>  $request->product_name
         ]);
 
-        return redirect()->route('suppliers.index');
+        return redirect()->route('products.index');
     }
 
     /**

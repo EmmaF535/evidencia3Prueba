@@ -38,7 +38,6 @@
                 <div class="col text-end">
                     <a href="{{ route('products.create') }}" class="btn btn-success">New product +</a>
                 </div>
-                <button type="button" class="btn btn-primary mt-4 me-3">Buy product</button>
             </div>
         </div>
         <div class="row">
@@ -65,6 +64,9 @@
                                 <td> {{$item->company_name}}</td>
                                 <td>
                                     <a href="{{ route('products.show', $item->id) }}" class="btn btn-secondary">Show product</a>
+                                    <div>
+                                        <a href="{{ route('products.edit', $item->id) }}" class="btn btn-info">Buy product</a>
+                                    </div>
                                 </td>
                             </tr>
 

@@ -9,7 +9,7 @@ class Supplier extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['company_name', 'address', 'phone'];
+    protected $guarded=[];
 
     static function todos_los_suppliers(){
         return Supplier::where('active', true)->get();

@@ -11,12 +11,9 @@ class WorkerController extends Controller
     public function index()
     {
     
-    $workers = Worker::join('roles','roles.id', '=','workers.role_id')
-    ->select('workers.id','name','username','roles.role')
-    ->orderby('workers.id','asc')
-    ->get();
+        $workers = Worker::todos_los_empleados();
     
-    return view('workers.index',compact('workers'));
+        return view('workers.index',compact('workers'));
 
     }
 

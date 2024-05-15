@@ -68,7 +68,6 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-       // dd($request);
 
         $customers = Customer::cliente_por_id($id);
 

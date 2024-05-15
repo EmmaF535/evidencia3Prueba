@@ -21,21 +21,22 @@
 
         <div class="row justify-content-center">
             <div class="col-12 col-md-9 col-lg-6">
-                
+                 
                 <form action="{{ route('products.update', $products->id) }}" method="post">
                     @csrf
                     @method('put')
 
                     <div class="mb-3">
                         <label for="product_name" class="form-label">Product Name</label>
-                        <input type="text" name="title" class="form-control" value="{{ $products->product_name }}">
+                        <input type="text" name="product_name" class="form-control" value="{{ $products->product_name }}">
                     </div>
                     
                     <div class="form-group">
-                        <label >Product:</label>
+                        <label >Supplier:</label>
+                        <option value="{{$products->supplier_id}}" selected>{{$products->company_name}}</option>
                         <select name="supplier_id" class="form-select form-control" aria-label="Default select example">
-                            @forelse($products as $product)
-                            <option value="{{$product->supplier_id}}">{{$product->supplier_id}}</option>
+                            @forelse($suppliers as $supplier)
+                            <option value="{{$supplier->id}}">{{$supplier->company_name}}</option>
                             @empty
                             <option value="1">There are no suppliers</option>
                             @endforelse
@@ -44,7 +45,7 @@
                     
                     <div class="mb-3">
                         <label for="available_quantity" class="form-label">Available Quantity</label>
-                        <input type="text" name="available_quantity" class="form-control" value="{{ $product->available_quantity }}">
+                        <input type="text" name="available_quantity" class="form-control" value="{{ $products->available_quantity }}">
                     </div>
 
                     <div class="text-end">

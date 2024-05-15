@@ -9,10 +9,7 @@ class SupplierController extends Controller
 {
     public function index()
     {
-      //  $suppliers = Supplier::todos_los_suppliers();
-        $suppliers = Supplier::select('id','company_name','address','phone')
-            ->orderby('id','asc')
-            ->get();
+        $suppliers = Supplier::todos_los_suppliers();
         
         return view('suppliers.index',compact('suppliers'));
 
@@ -68,7 +65,6 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request);
 
         $suppliers = Supplier::supplier_por_id($id);
 
